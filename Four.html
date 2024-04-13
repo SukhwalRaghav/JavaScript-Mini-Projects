@@ -1,0 +1,47 @@
+<!-- Edit and Remove in Dom -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="color: white; background-color: black;">
+    <ul class="language" >
+        <li>Javascript</li>
+    </ul>
+    <script>
+        function addlanguage(lang){
+            let li = document.createElement('li');
+            li.innerHTML = `${lang}`;
+            document.querySelector('.language').appendChild(li);
+        }
+        addlanguage("Java");
+        addlanguage("Python");
+
+        // Second and most optimise approach
+        function addOptiLanguage(langname){
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode((langname)));
+            document.querySelector('.language').appendChild(li);
+        }
+        addOptiLanguage("Raghav")
+
+        //Edit
+        const Secondlang = document.querySelector('li:nth-child(4)');
+        console.log(Secondlang);
+        const newli = document.createElement('li');
+        newli.textContent = "Mojo";
+        Secondlang.replaceWith(newli);
+
+        //Edit
+        const FirstElement = document.querySelector('li:first-child');
+        FirstElement.outerHTML = "<li>Sukhwal</li>"
+
+        //Remove
+        const lastlang = document.querySelector('li:last-child');
+        lastlang.remove();
+    </script>
+</body>
+</html>
